@@ -57,7 +57,7 @@ Sửa `data/questions.js`. Mỗi câu hỏi theo schema:
 | `choices_vi`     | mảng **đúng 4** lựa chọn (tiếng Việt)                       |
 | `correct_answer` | chỉ số (0–3) của đáp án đúng trong `choices_vi`             |
 | `explanation_vi` | giải thích ngắn (tiếng Việt)                                |
-| `image`          | tên file trong `/images` (vd `"stop-sign.svg"`) hoặc `null` |
+| `image`          | tên file trong `/images` (vd `"stop-sign.png"`) hoặc `null` |
 | `source_ref`     | phần handbook tham chiếu (để người soạn kiểm chứng)         |
 
 Ví dụ:

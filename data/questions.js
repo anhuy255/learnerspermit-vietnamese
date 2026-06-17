@@ -31,8 +31,8 @@ export const QUESTIONS = [
     correct_answer: 1,
     explanation_vi:
       "Biển hình bát giác màu đỏ luôn là biển DỪNG (STOP). Bạn phải dừng lại hoàn toàn trước vạch dừng hoặc lối đi bộ.",
-    image: "stop-sign.svg",
-    source_ref: "PUB 95 – Chương 2 (Câu hỏi ôn tập: hình dạng biển báo)"
+    image: "stop-sign.png",
+    source_ref: "PUB 95 – Chương 2, mục BIỂN BÁO HIỆU LỆNH (trang in 10)"
   },
   {
     id: "q-002",
@@ -62,9 +62,9 @@ export const QUESTIONS = [
     ],
     correct_answer: 1,
     explanation_vi:
-      "Biển màu vàng hình thoi là biển cảnh báo, báo cho bạn biết có tình huống nguy hiểm hoặc thay đổi phía trước.",
-    image: "warning-sign.svg",
-    source_ref: "PUB 95 – Chương 2 (Màu và hình dạng biển báo)"
+      "Biển màu vàng hình thoi là biển cảnh báo, báo cho bạn biết có tình huống nguy hiểm hoặc thay đổi phía trước (ví dụ: đoạn đường cong).",
+    image: "warning-curve.png",
+    source_ref: "PUB 95 – Chương 2, mục BIỂN CẢNH BÁO (trang in 13)"
   },
   {
     id: "q-004",
@@ -109,7 +109,7 @@ export const QUESTIONS = [
     explanation_vi:
       "Sổ tay khuyến nghị quy tắc bốn giây để giữ khoảng cách an toàn với xe phía trước. Hãy tăng khoảng cách khi đường xấu.",
     image: null,
-    source_ref: "PUB 95 – Chương 3 (Khoảng cách theo sau)"
+    source_ref: "PUB 95 – Chương 3, quy tắc bốn (4) giây (trang in 36)"
   },
   {
     id: "q-007",
@@ -125,7 +125,7 @@ export const QUESTIONS = [
     explanation_vi:
       "Ở Pennsylvania, khi bạn bật cần gạt nước (trời mưa, tuyết) thì luật yêu cầu phải bật đèn pha.",
     image: null,
-    source_ref: "PUB 95 – Chương 3 (Đèn xe)"
+    source_ref: "PUB 95 – Chương 3, bắt buộc dùng đèn khi bật gạt nước (trang in 40)"
   },
   {
     id: "q-008",
@@ -169,7 +169,7 @@ export const QUESTIONS = [
     explanation_vi:
       "Hãy hạ đèn pha khi còn cách xe ngược chiều khoảng 500 feet, và khi đi sau xe khác trong khoảng 300 feet, để không làm chói mắt người lái khác.",
     image: null,
-    source_ref: "PUB 95 – Chương 3 (Sử dụng đèn pha)"
+    source_ref: "PUB 95 – Chương 3, hạ đèn chiếu xa trong 500 feet (trang in 40)"
   },
 
   // ---- Topic: Nhường đường, đỗ xe, an toàn -------------------------------
@@ -203,8 +203,8 @@ export const QUESTIONS = [
     correct_answer: 1,
     explanation_vi:
       "Khi xe buýt trường học bật đèn đỏ nhấp nháy và mở biển dừng, xe ở cả hai chiều phải dừng lại và dừng cách ít nhất 10 feet.",
-    image: "school-bus.svg",
-    source_ref: "PUB 95 – Chương 3 (Xe buýt trường học)"
+    image: "school-bus-stop.png",
+    source_ref: "PUB 95 – Chương 3, xe buýt trường học (trang in 58)"
   },
   {
     id: "q-013",
@@ -215,7 +215,7 @@ export const QUESTIONS = [
     explanation_vi:
       "Không được đỗ xe trong vòng 15 feet tính từ vòi nước chữa cháy để xe cứu hỏa có thể tiếp cận.",
     image: null,
-    source_ref: "PUB 95 – Chương 3 (Quy định đỗ xe)"
+    source_ref: "PUB 95 – Chương 3, nơi cấm đỗ xe — cách cột nước cứu hỏa 15 feet (trang in 53)"
   },
   {
     id: "q-014",
@@ -261,7 +261,7 @@ export const QUESTIONS = [
     explanation_vi:
       "Người từ 21 tuổi trở lên phạm tội DUI khi BAC từ 0.08% trở lên. Với người dưới 21 tuổi, giới hạn là 0.02%.",
     image: null,
-    source_ref: "PUB 95 – Chương 4 (Rượu và lái xe)"
+    source_ref: "PUB 95 – Chương 3, RƯỢU BIA VÀ LÁI XE (trang in 33–34); hình phạt: Chương 4"
   },
   {
     id: "q-017",
@@ -273,7 +273,7 @@ export const QUESTIONS = [
     explanation_vi:
       "Pennsylvania áp dụng quy định không khoan nhượng cho người dưới 21 tuổi: BAC từ 0.02% trở lên đã là vi phạm.",
     image: null,
-    source_ref: "PUB 95 – Chương 4 (Quy định không khoan nhượng)"
+    source_ref: "PUB 95 – Chương 4, hình phạt với người dưới 21 tuổi (trang in 82); xem thêm Chương 3 (trang in 34)"
   },
   {
     id: "q-018",
@@ -289,7 +289,7 @@ export const QUESTIONS = [
     explanation_vi:
       "Pennsylvania cấm nhắn tin khi đang lái xe. Nếu cần dùng điện thoại, hãy dừng xe ở nơi an toàn.",
     image: null,
-    source_ref: "PUB 95 – Chương 4 (Lái xe mất tập trung)"
+    source_ref: "PUB 95 – Chương 3 & Chương 5, cấm nhắn tin khi lái xe"
   },
   {
     id: "q-019",
@@ -304,9 +304,9 @@ export const QUESTIONS = [
     ],
     correct_answer: 2,
     explanation_vi:
-      "Khi lái xe ở Pennsylvania, bạn đã ngầm đồng ý xét nghiệm nồng độ cồn. Từ chối xét nghiệm sẽ bị treo bằng lái.",
+      "Khi lái xe ở Pennsylvania, bạn đã ngầm đồng ý xét nghiệm nồng độ cồn. Từ chối xét nghiệm sẽ bị treo bằng lái (1 năm cho lần đầu).",
     image: null,
-    source_ref: "PUB 95 – Chương 4 (Luật đồng ý ngầm)"
+    source_ref: "PUB 95 – Chương 4, Luật Đồng Ý Ngầm Định (trang in 82)"
   },
   {
     id: "q-020",
@@ -323,6 +323,56 @@ export const QUESTIONS = [
     explanation_vi:
       "Khi lần đầu đạt 6 điểm phạt trở lên, bạn phải làm bài kiểm tra viết đặc biệt. Tích lũy quá nhiều điểm có thể dẫn tới treo bằng.",
     image: null,
-    source_ref: "PUB 95 – Chương 4 (Hệ thống điểm phạt)"
+    source_ref: "PUB 95 – Chương 4, hệ thống điểm — kỳ kiểm tra đặc biệt khi lần đầu đạt 6 điểm (trang in 79)"
+  },
+
+  // ---- Câu hỏi hình ảnh bổ sung (biển báo thực tế từ handbook) -----------
+  {
+    id: "q-021",
+    topic: "signs-signals",
+    question_vi: "Biển báo hình thoi màu cam (chữ đen) như trong hình cho biết điều gì?",
+    choices_vi: [
+      "Khu vực trường học phía trước",
+      "Khu vực công trường — hãy giảm tốc và cảnh giác",
+      "Khu vực cấm đỗ xe",
+      "Lối qua đường dành cho người đi bộ"
+    ],
+    correct_answer: 1,
+    explanation_vi:
+      "Biển khu vực công trường có hình thoi, nền màu cam với chữ màu đen. Chúng cho biết khu vực bảo trì/xây dựng — hãy cảnh giác và đi chậm lại. Nhớ bật đèn phía trước khi đi qua khu vực công trường.",
+    image: "work-zone-sign.png",
+    source_ref: "PUB 95 – Chương 2, CÁC BIỂN BÁO KHU VỰC CÔNG TRƯỜNG (trang in 18)"
+  },
+  {
+    id: "q-022",
+    topic: "signs-signals",
+    question_vi: "Biển đánh dấu hình đá đỉnh vòm (keystone) như trong hình cho biết điều gì?",
+    choices_vi: [
+      "Đây là xa lộ liên tiểu bang",
+      "Đây là tuyến đường tiểu bang của Pennsylvania",
+      "Đây là biển báo dịch vụ",
+      "Đây là khu vực công trường"
+    ],
+    correct_answer: 1,
+    explanation_vi:
+      "Biển đánh dấu hình đá đỉnh vòm (keystone) cho biết con đường đó là một tuyến đường tiểu bang của Pennsylvania.",
+    image: "route-marker-keystone.png",
+    source_ref: "PUB 95 – Chương 2, BIỂN ĐÁNH DẤU TUYẾN ĐƯỜNG (trang in 21)"
+  },
+  {
+    id: "q-023",
+    topic: "signs-signals",
+    question_vi: "Biển báo nền màu xanh dương với biểu tượng màu trắng như trong hình là loại biển gì?",
+    choices_vi: [
+      "Biển cảnh báo nguy hiểm",
+      "Biển báo hiệu lệnh bắt buộc",
+      "Biển báo dịch vụ (chỉ địa điểm dịch vụ như trạm xăng)",
+      "Biển báo khu vực công trường"
+    ],
+    correct_answer: 2,
+    explanation_vi:
+      "Biển báo dịch vụ có nền màu xanh dương với chữ hoặc biểu tượng màu trắng, chỉ báo địa điểm của các dịch vụ (trạm xăng, bệnh viện, ăn uống, lưu trú...) ở lối rẽ tiếp theo.",
+    image: "service-sign-gas.png",
+    source_ref: "PUB 95 – Chương 2, BIỂN BÁO DỊCH VỤ (trang in 21)"
   }
 ];

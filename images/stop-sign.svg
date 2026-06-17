@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Biển báo DỪNG">
-  <polygon points="60,10 140,10 190,60 190,140 140,190 60,190 10,140 10,60"
-           fill="#b3261e" stroke="#fff" stroke-width="8"/>
-  <text x="100" y="118" text-anchor="middle" font-family="Arial, sans-serif"
-        font-size="42" font-weight="bold" fill="#fff">STOP</text>
-  <text x="100" y="160" text-anchor="middle" font-family="Arial, sans-serif"
-        font-size="11" fill="#fff" opacity="0.85">placeholder · PUB 95</text>
-</svg>
