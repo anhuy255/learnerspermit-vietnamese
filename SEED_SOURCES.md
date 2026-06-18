@@ -71,6 +71,29 @@ Chapter map (verified):
 | `service-sign-gas.png` | Chương 2, trang in 21 (gas-pump service sign) |
 | `school-bus-stop.png` | Chương 3, trang in 58 (10-foot stopping diagram) |
 
+## Expansion: q-024 … q-073 (50 questions from the review sections)
+
+These were taken **directly from the handbook's own chapter review-question
+sections** ("CÂU HỎI ÔN TẬP") and graded with the printed answer keys
+("ĐÁP ÁN"). The ALL-CAPS handbook stems were converted to sentence case for
+readability; the four answer choices are kept verbatim and in original order,
+so each `correct_answer` index matches the handbook answer key letter.
+
+| Range | Source section | Pages |
+|-------|----------------|-------|
+| Chương 2 review Qs | CÂU HỎI ÔN TẬP CHƯƠNG 2 / ĐÁP ÁN | questions trang in 23–29, key 30 |
+| Chương 3 review Qs | CÂU HỎI ÔN TẬP CHƯƠNG 3 / ĐÁP ÁN | questions trang in 65–77, key 78 |
+| Chương 4 review Qs | CÂU HỎI ÔN TẬP CHƯƠNG 4 / ĐÁP ÁN | questions trang in 86–87, key 88 |
+
+Each question's `source_ref` names the chapter and the exact review-question
+number (e.g. "Chương 3, câu hỏi ôn tập #84"), so it can be checked against the
+PDF. Image-dependent review questions (those that say "BIỂN BÁO NÀY" / refer to
+a pictured sign or diagram without naming it) were skipped in favor of
+self-contained, text-answerable ones.
+
+Bank now totals **73 questions** (signs 21, driving 19, yield/parking 18,
+DUI/laws 15). Each practice attempt draws a random 20.
+
 ## Confidence / caveats
 - **Image extractions and the page numbers in bold/quoted rows are verified**
   (the exact Vietnamese wording was located on those pages).

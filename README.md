@@ -10,7 +10,7 @@ bằng **tiếng Việt**. Nội dung dựa trên Sổ Tay Tài Xế PennDOT —
 
 - Trang chủ với các chủ đề ôn tập.
 - Trang chủ đề ôn tập bằng tiếng Việt (4 chủ đề).
-- Bài thi thử trắc nghiệm 20 câu (mỗi câu 4 lựa chọn).
+- Ngân hàng 73 câu hỏi; mỗi lần thi rút ngẫu nhiên 20 câu (mỗi câu 4 lựa chọn).
 - Hỗ trợ hình ảnh tùy chọn cho từng câu (biển báo, hình minh họa).
 - Hiện đáp án đúng + giải thích ngắn bằng tiếng Việt sau khi nộp.
 - Theo dõi điểm số, trang kết quả, và nút làm lại.
@@ -39,7 +39,7 @@ js/app.js           # router + các thành phần UI dùng chung (home/topic/qui
 data/topics.js      # NỘI DUNG ôn tập theo chủ đề
 data/questions.js   # NGÂN HÀNG CÂU HỎI (sửa file này để thêm câu)
 images/             # hình cho câu hỏi (+ README.md hướng dẫn)
-SEED_SOURCES.md     # các phần handbook dùng để tạo 20 câu hỏi gốc
+SEED_SOURCES.md     # các phần handbook dùng để tạo câu hỏi
 ```
 
 Nội dung tách rời khỏi UI: thêm câu hỏi / chủ đề **không cần** sửa

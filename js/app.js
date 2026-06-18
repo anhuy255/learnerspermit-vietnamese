@@ -31,6 +31,11 @@ function shuffle(arr) {
 // Quiz runtime state (kept in memory; reset on retry).
 let quiz = null;
 
+// How many questions per practice attempt. The PA knowledge test is ~18;
+// we draw a fresh random subset from the bank each attempt for variety.
+// If the bank is smaller than this, all questions are used.
+const QUIZ_LENGTH = 20;
+
 // --- views -----------------------------------------------------------------
 
 function renderHome() {
@@ -45,10 +50,12 @@ function renderHome() {
   app.innerHTML = `
     <h1 class="page-title">Học thi bằng lái xe tạm thời Pennsylvania</h1>
     <p class="lead">
-      Ôn tập theo chủ đề bằng tiếng Việt và làm bài thi thử ${QUESTIONS.length} câu hỏi.
+      Ôn tập theo chủ đề bằng tiếng Việt và làm bài thi thử. Mỗi lần thi gồm
+      ${Math.min(QUIZ_LENGTH, QUESTIONS.length)} câu hỏi ngẫu nhiên lấy từ
+      ngân hàng ${QUESTIONS.length} câu.
     </p>
 
-    <a class="btn" href="#/quiz">📝 Bắt đầu bài thi thử (${QUESTIONS.length} câu)</a>
+    <a class="btn" href="#/quiz">📝 Bắt đầu bài thi thử (${Math.min(QUIZ_LENGTH, QUESTIONS.length)} câu)</a>
 
     <h2 class="page-title" style="font-size:1.15rem;margin-top:22px;">Chủ đề ôn tập</h2>
     ${topicCards}
@@ -80,8 +87,8 @@ function renderTopic(id) {
 
 function startQuiz() {
   quiz = {
-    // Shuffle question order each attempt for better practice.
-    questions: shuffle(QUESTIONS),
+    // Draw a fresh random subset each attempt for better practice.
+    questions: shuffle(QUESTIONS).slice(0, QUIZ_LENGTH),
     index: 0,
     selected: null, // index of chosen answer for current question
     submitted: false,
