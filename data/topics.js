@@ -139,7 +139,7 @@ export const TOPICS = [
           "Tài xế xe thương mại: giới hạn BAC là 0.04%.",
           "Rượu làm giảm khả năng phán đoán, phản xạ và sự tập trung."
         ],
-        source_ref: "PUB 95 – Chương 1 & 4: Rượu, ma túy và lái xe"
+        source_ref: "PUB 95 – Chương 3: RƯỢU BIA VÀ LÁI XE (trang in 33–34); hình phạt: Chương 4"
       },
       {
         heading_vi: "Đồng ý ngầm (Implied Consent)",
@@ -147,7 +147,7 @@ export const TOPICS = [
           "Khi lái xe ở Pennsylvania, bạn đã ngầm đồng ý xét nghiệm nồng độ cồn nếu bị nghi ngờ DUI.",
           "Từ chối xét nghiệm sẽ bị treo bằng lái, ngoài các hình phạt khác."
         ],
-        source_ref: "PUB 95 – Chương 4: Luật đồng ý ngầm"
+        source_ref: "PUB 95 – Chương 4: Luật Đồng Ý Ngầm Định (trang in 82)"
       },
       {
         heading_vi: "Nhắn tin và lái xe mất tập trung",
@@ -156,7 +156,7 @@ export const TOPICS = [
           "Lái xe mất tập trung làm tăng nguy cơ tai nạn — hãy tránh dùng điện thoại khi lái.",
           "Dừng xe ở nơi an toàn nếu cần dùng điện thoại."
         ],
-        source_ref: "PUB 95 – Chương 4: Lái xe mất tập trung"
+        source_ref: "PUB 95 – Chương 3 & Chương 5: cấm nhắn tin khi lái xe"
       },
       {
         heading_vi: "Hệ thống điểm phạt",
@@ -165,7 +165,7 @@ export const TOPICS = [
           "Khi lần đầu đạt 6 điểm trở lên, bạn phải làm bài kiểm tra viết đặc biệt.",
           "Tích lũy quá nhiều điểm có thể dẫn đến treo bằng lái."
         ],
-        source_ref: "PUB 95 – Chương 4: Hệ thống điểm phạt"
+        source_ref: "PUB 95 – Chương 4: Hệ thống điểm phạt (trang in 79)"
       }
     ]
   }
