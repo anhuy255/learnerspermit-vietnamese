@@ -208,3 +208,85 @@ a.card:active { transform: scale(.99); }
 .result-msg { text-align: center; font-size: 1.1rem; font-weight: 600; }
 .result-msg.pass { color: var(--green); }
 .result-msg.fail { color: var(--red); }
+
+/* --- Flash cards (Thẻ ghi nhớ) --- */
+.flashcard {
+  perspective: 1200px;
+  width: 100%;
+  min-height: 360px;
+  margin: 4px 0 14px;
+  cursor: pointer;
+  outline: none;
+}
+.flashcard:focus-visible .fc-inner { box-shadow: 0 0 0 3px rgba(28,93,153,.5); border-radius: var(--radius); }
+.fc-inner {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  transition: transform .5s;
+  transform-style: preserve-3d;
+}
+.flashcard.is-flipped .fc-inner { transform: rotateY(180deg); }
+.fc-face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.fc-back {
+  transform: rotateY(180deg);
+  justify-content: flex-start;
+  text-align: left;
+  overflow-y: auto;
+}
+.fc-cat {
+  align-self: center;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: var(--blue);
+  background: #eef3f8;
+  border-radius: 99px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+}
+.fc-img {
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 4px auto 12px;
+}
+.fc-title { font-size: 1.3rem; font-weight: 700; color: var(--navy-dark); margin: 4px 0; }
+.fc-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 0; right: 0;
+  font-size: .75rem;
+  color: var(--muted);
+}
+.fc-explain { font-size: 1.05rem; margin: 4px 0 12px; }
+.fc-row, .fc-tip { margin: 8px 0; font-size: .95rem; }
+.fc-key { font-weight: 700; color: var(--navy); }
+.fc-pron { color: var(--muted); font-style: italic; }
+.fc-tip {
+  background: var(--green-bg);
+  border-left: 4px solid var(--green);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 12px;
+}
+.fc-controls { display: flex; gap: 10px; }
+.fc-controls .btn { margin-top: 0; }

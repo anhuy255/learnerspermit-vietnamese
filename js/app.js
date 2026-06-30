@@ -4,6 +4,11 @@
 
 import { TOPICS, TOPIC_BY_ID } from "../data/topics.js";
 import { QUESTIONS } from "../data/questions.js";
+import {
+  FLASHCARDS,
+  FLASHCARD_CATEGORIES,
+  FLASHCARDS_BY_CATEGORY
+} from "../data/flashcards.js";
 
 const app = document.getElementById("app");
 const LETTERS = ["A", "B", "C", "D"];
@@ -36,6 +41,9 @@ let quiz = null;
 // If the bank is smaller than this, all questions are used.
 const QUIZ_LENGTH = 20;
 
+// Flash card runtime state (kept in memory).
+let flash = null;
+
 // --- views -----------------------------------------------------------------
 
 function renderHome() {
@@ -56,6 +64,7 @@ function renderHome() {
     </p>
 
     <a class="btn" href="#/quiz">📝 Bắt đầu bài thi thử (${Math.min(QUIZ_LENGTH, QUESTIONS.length)} câu)</a>
+    <a class="btn btn--secondary" href="#/flashcards">🃏 Thẻ ghi nhớ (${FLASHCARDS.length} thẻ)</a>
 
     <h2 class="page-title" style="font-size:1.15rem;margin-top:22px;">Chủ đề ôn tập</h2>
     ${topicCards}
@@ -225,6 +234,128 @@ function renderNotFound() {
   `;
 }
 
+// --- flash cards (Thẻ ghi nhớ) ----------------------------------------------
+
+// Category menu: pick "Tất cả" or one category.
+function renderFlashcardsHome() {
+  const cards = FLASHCARD_CATEGORIES.map((c) => {
+    const n = FLASHCARDS_BY_CATEGORY[c].length;
+    const withImg = FLASHCARDS_BY_CATEGORY[c].filter((card) => card.front.image).length;
+    return `
+      <a class="card" href="#/flashcards/${encodeURIComponent(c)}">
+        <h2>${esc(c)}</h2>
+        <p>${n} thẻ${withImg ? ` · ${withImg} thẻ có hình` : ""}</p>
+      </a>`;
+  }).join("");
+
+  app.innerHTML = `
+    <a class="back-link" href="#/">← Trang chủ</a>
+    <h1 class="page-title">🃏 Thẻ ghi nhớ</h1>
+    <p class="lead">
+      Lật thẻ để ôn nhanh biển báo, tín hiệu và quy tắc. Nhấn vào thẻ để xem
+      mặt sau.
+    </p>
+    <a class="btn" href="#/flashcards/${encodeURIComponent("__all__")}">▶️ Học tất cả (${FLASHCARDS.length} thẻ)</a>
+    <h2 class="page-title" style="font-size:1.15rem;margin-top:22px;">Theo chủ đề</h2>
+    ${cards}
+  `;
+}
+
+// Build the deck for a category (or all) and show the first card.
+function startFlashcards(category) {
+  const deck =
+    category === "__all__"
+      ? FLASHCARDS.slice()
+      : (FLASHCARDS_BY_CATEGORY[category] || []).slice();
+  if (!deck.length) return renderNotFound();
+  flash = { category, cards: deck, index: 0, flipped: false };
+  renderFlashcard();
+}
+
+function renderFlashcard() {
+  if (!flash) return renderFlashcardsHome();
+  const total = flash.cards.length;
+  const card = flash.cards[flash.index];
+  const title =
+    flash.category === "__all__" ? "Tất cả thẻ" : flash.category;
+
+  const frontImg = card.front.image
+    ? `<img class="fc-img" src="images/${esc(card.front.image)}"
+         alt="${esc(card.front.title_vi)}" onerror="this.style.display='none'" />`
+    : "";
+
+  const b = card.back;
+  const backRows = [
+    `<p class="fc-explain">${esc(b.explanation_vi)}</p>`,
+    b.english_ref
+      ? `<p class="fc-row"><span class="fc-key">Tiếng Anh:</span> ${esc(b.english_ref)}${
+          b.pronunciation ? ` <span class="fc-pron">(${esc(b.pronunciation)})</span>` : ""
+        }</p>`
+      : "",
+    b.memory_tip
+      ? `<p class="fc-tip"><span class="fc-key">💡 Mẹo nhớ:</span> ${esc(b.memory_tip)}</p>`
+      : ""
+  ].join("");
+
+  app.innerHTML = `
+    <a class="back-link" href="#/flashcards">← Chọn chủ đề</a>
+    <div class="quiz-progress">${esc(title)} · Thẻ ${flash.index + 1} / ${total}</div>
+    <div class="progress-bar"><span style="width:${((flash.index + 1) / total) * 100}%"></span></div>
+
+    <div class="flashcard ${flash.flipped ? "is-flipped" : ""}" id="flashcard" tabindex="0"
+         role="button" aria-label="Nhấn để lật thẻ">
+      <div class="fc-inner">
+        <div class="fc-face fc-front">
+          <span class="fc-cat">${esc(card.category)}</span>
+          ${frontImg}
+          <p class="fc-title">${esc(card.front.title_vi)}</p>
+          <span class="fc-hint">Nhấn để lật ↻</span>
+        </div>
+        <div class="fc-face fc-back">
+          <span class="fc-cat">${esc(card.front.title_vi)}</span>
+          ${backRows}
+          <span class="fc-hint">Nhấn để lật lại ↻</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc-controls">
+      <button class="btn btn--secondary" id="fc-prev" ${flash.index === 0 ? "disabled" : ""}>← Trước</button>
+      <button class="btn btn--secondary" id="fc-next" ${flash.index === total - 1 ? "disabled" : ""}>Tiếp →</button>
+    </div>
+    <button class="btn btn--ghost" id="fc-shuffle">🔀 Xáo trộn thẻ</button>
+  `;
+
+  const flip = () => {
+    flash.flipped = !flash.flipped;
+    document.getElementById("flashcard").classList.toggle("is-flipped");
+  };
+  const cardEl = document.getElementById("flashcard");
+  cardEl.addEventListener("click", flip);
+  cardEl.addEventListener("keydown", (e) => {
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      flip();
+    }
+  });
+
+  const go = (delta) => {
+    const next = flash.index + delta;
+    if (next < 0 || next >= total) return;
+    flash.index = next;
+    flash.flipped = false;
+    renderFlashcard();
+  };
+  document.getElementById("fc-prev").addEventListener("click", () => go(-1));
+  document.getElementById("fc-next").addEventListener("click", () => go(1));
+  document.getElementById("fc-shuffle").addEventListener("click", () => {
+    flash.cards = shuffle(flash.cards);
+    flash.index = 0;
+    flash.flipped = false;
+    renderFlashcard();
+  });
+}
+
 // --- router -----------------------------------------------------------------
 
 function router() {
@@ -235,6 +366,10 @@ function router() {
   if (parts[0] === "topic") return renderTopic(parts[1]);
   if (parts[0] === "quiz") return quiz ? renderQuiz() : startQuiz();
   if (parts[0] === "results") return renderResults();
+  if (parts[0] === "flashcards") {
+    if (parts[1]) return startFlashcards(decodeURIComponent(parts[1]));
+    return renderFlashcardsHome();
+  }
   return renderNotFound();
 }
 
