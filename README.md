@@ -10,7 +10,7 @@ bằng **tiếng Việt**. Nội dung dựa trên Sổ Tay Tài Xế PennDOT —
 
 - Trang chủ với các chủ đề ôn tập.
 - Trang chủ đề ôn tập bằng tiếng Việt (4 chủ đề).
-- Ngân hàng 73 câu hỏi; mỗi lần thi rút ngẫu nhiên 20 câu (mỗi câu 4 lựa chọn).
+- Ngân hàng 77 câu hỏi; mỗi lần thi rút ngẫu nhiên 18 câu (giống kỳ thi thật, cần đúng 15 câu để đậu; mỗi câu 4 lựa chọn).
 - Hỗ trợ hình ảnh tùy chọn cho từng câu (biển báo, hình minh họa).
 - Hiện đáp án đúng + giải thích ngắn bằng tiếng Việt sau khi nộp.
 - Theo dõi điểm số, trang kết quả, và nút làm lại.
