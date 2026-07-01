@@ -36,10 +36,11 @@ function shuffle(arr) {
 // Quiz runtime state (kept in memory; reset on retry).
 let quiz = null;
 
-// How many questions per practice attempt. The PA knowledge test is ~18;
-// we draw a fresh random subset from the bank each attempt for variety.
+// The real PA knowledge test is 18 questions; you must get at least 15 correct
+// (83%) to pass. We draw a fresh random subset from the bank each attempt.
 // If the bank is smaller than this, all questions are used.
-const QUIZ_LENGTH = 20;
+const QUIZ_LENGTH = 18;
+const PASS_CORRECT = 15; // 15/18 ≈ 83% on the official test
 
 // Flash card runtime state (kept in memory).
 let flash = null;
@@ -59,8 +60,8 @@ function renderHome() {
     <h1 class="page-title">Học thi bằng lái xe tạm thời Pennsylvania</h1>
     <p class="lead">
       Ôn tập theo chủ đề bằng tiếng Việt và làm bài thi thử. Mỗi lần thi gồm
-      ${Math.min(QUIZ_LENGTH, QUESTIONS.length)} câu hỏi ngẫu nhiên lấy từ
-      ngân hàng ${QUESTIONS.length} câu.
+      ${Math.min(QUIZ_LENGTH, QUESTIONS.length)} câu ngẫu nhiên (giống kỳ thi
+      thật) lấy từ ngân hàng ${QUESTIONS.length} câu — cần đúng ${PASS_CORRECT} câu để đậu.
     </p>
 
     <a class="btn" href="#/quiz">📝 Bắt đầu bài thi thử (${Math.min(QUIZ_LENGTH, QUESTIONS.length)} câu)</a>
@@ -206,8 +207,9 @@ function renderResults() {
   const total = quiz.questions.length;
   const score = quiz.score;
   const pct = Math.round((score / total) * 100);
-  // PA knowledge test passing is commonly 15/18 (~83%); use 80% as a study target.
-  const passed = pct >= 80;
+  // Official PA rule: 15 of 18 correct (83%) to pass. Scale if the deck is smaller.
+  const needed = Math.min(PASS_CORRECT, Math.ceil((PASS_CORRECT / QUIZ_LENGTH) * total));
+  const passed = score >= needed;
 
   app.innerHTML = `
     <h1 class="page-title">Kết quả</h1>
@@ -218,7 +220,7 @@ function renderResults() {
       </div>
     </div>
     <p class="result-msg ${passed ? "pass" : "fail"}">
-      ${passed ? "🎉 Tốt lắm! Bạn đã đạt mức mục tiêu." : "Hãy ôn lại và thử lại nhé!"}
+      ${passed ? "🎉 Đậu! Bạn đã đúng ít nhất " + needed + "/" + total + " câu." : "Chưa đạt — cần đúng " + needed + "/" + total + " câu để đậu. Hãy ôn lại và thử lại nhé!"}
     </p>
     <button class="btn" id="retry-btn">🔄 Làm lại bài thi</button>
     <a class="btn btn--secondary" href="#/">← Về trang chủ</a>
