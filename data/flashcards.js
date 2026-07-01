@@ -9,6 +9,10 @@
 //   category      : must match a label in FLASHCARD_CATEGORIES below
 //   front:
 //     image       : filename in /images (e.g. "stop-sign.png") or null
+//                   Sign photos (*.png) are cropped from the PUB 95 handbook.
+//                   Concept cards use simple illustrative SVG diagrams drawn to
+//                   match the handbook text (traffic lights, markings, right-of-
+//                   way scenarios, safety icons) — schematic, not to scale.
 //     title_vi    : short Vietnamese title (keep it short for the front)
 //   back:
 //     explanation_vi : Vietnamese explanation (1–2 short sentences)
@@ -224,7 +228,7 @@ export const FLASHCARDS = [
   {
     id: "fc-018",
     category: "Tín hiệu đèn",
-    front: { image: null, title_vi: "Đèn đỏ" },
+    front: { image: "signal-red.svg", title_vi: "Đèn đỏ" },
     back: {
       explanation_vi: "Dừng lại hoàn toàn trước vạch dừng hoặc lối đi bộ. Được rẽ phải khi đèn đỏ sau khi dừng hẳn, trừ khi có biển cấm.",
       english_ref: "Red light",
@@ -235,7 +239,7 @@ export const FLASHCARDS = [
   {
     id: "fc-019",
     category: "Tín hiệu đèn",
-    front: { image: null, title_vi: "Đèn vàng" },
+    front: { image: "signal-yellow.svg", title_vi: "Đèn vàng" },
     back: {
       explanation_vi: "Đèn sắp chuyển sang đỏ. Chuẩn bị dừng lại nếu có thể dừng an toàn.",
       english_ref: "Yellow light",
@@ -246,7 +250,7 @@ export const FLASHCARDS = [
   {
     id: "fc-020",
     category: "Tín hiệu đèn",
-    front: { image: null, title_vi: "Đèn xanh" },
+    front: { image: "signal-green.svg", title_vi: "Đèn xanh" },
     back: {
       explanation_vi: "Được đi nếu phía trước thông thoáng; vẫn phải nhường cho xe và người đi bộ còn trong giao lộ.",
       english_ref: "Green light",
@@ -279,7 +283,7 @@ export const FLASHCARDS = [
   {
     id: "fc-023",
     category: "Tín hiệu đèn",
-    front: { image: null, title_vi: "Mũi tên xanh" },
+    front: { image: "signal-green-arrow.svg", title_vi: "Mũi tên xanh" },
     back: {
       explanation_vi: "Được phép đi theo hướng mũi tên; hướng đó đã được bảo vệ.",
       english_ref: "Green arrow",
@@ -292,7 +296,7 @@ export const FLASHCARDS = [
   {
     id: "fc-024",
     category: "Vạch kẻ đường",
-    front: { image: null, title_vi: "Vạch vàng liền" },
+    front: { image: "marking-solid-yellow.svg", title_vi: "Vạch vàng liền" },
     back: {
       explanation_vi: "Phân chia hai chiều xe ngược nhau. Vạch vàng liền nghĩa là cấm vượt.",
       english_ref: "Solid yellow line",
@@ -338,7 +342,7 @@ export const FLASHCARDS = [
   {
     id: "fc-028",
     category: "Luật ưu tiên",
-    front: { image: null, title_vi: "Giao lộ bốn chiều" },
+    front: { image: "rw-4way-stop.svg", title_vi: "Giao lộ bốn chiều" },
     back: {
       explanation_vi: "Xe đến trước được đi trước. Nếu đến cùng lúc, xe bên trái nhường cho xe bên phải.",
       english_ref: "4-way stop",
@@ -349,7 +353,7 @@ export const FLASHCARDS = [
   {
     id: "fc-029",
     category: "Luật ưu tiên",
-    front: { image: null, title_vi: "Vòng xuyến (bùng binh)" },
+    front: { image: "rw-roundabout.svg", title_vi: "Vòng xuyến (bùng binh)" },
     back: {
       explanation_vi: "Khi vào vòng xuyến, phải nhường đường cho các xe đã ở trong vòng xuyến.",
       english_ref: "Roundabout",
@@ -360,7 +364,7 @@ export const FLASHCARDS = [
   {
     id: "fc-030",
     category: "Luật ưu tiên",
-    front: { image: null, title_vi: "Nhường người đi bộ" },
+    front: { image: "rw-pedestrian.svg", title_vi: "Nhường người đi bộ" },
     back: {
       explanation_vi: "Luôn nhường đường cho người đi bộ trên lối qua đường. Khi rẽ mà có người đi bộ băng qua, người lái phải nhường.",
       english_ref: "Yield to pedestrians",
@@ -371,7 +375,7 @@ export const FLASHCARDS = [
   {
     id: "fc-031",
     category: "Luật ưu tiên",
-    front: { image: null, title_vi: "Xe cấp cứu" },
+    front: { image: "rw-emergency.svg", title_vi: "Xe cấp cứu" },
     back: {
       explanation_vi: "Khi xe cấp cứu hú còi/nhấp đèn tiến đến, hãy tấp vào lề bên phải và dừng lại cho tới khi xe đó đi qua.",
       english_ref: "Emergency vehicle",
@@ -382,7 +386,7 @@ export const FLASHCARDS = [
   {
     id: "fc-032",
     category: "Luật ưu tiên",
-    front: { image: null, title_vi: "Rẽ trái nhường đường" },
+    front: { image: "rw-left-turn-yield.svg", title_vi: "Rẽ trái nhường đường" },
     back: {
       explanation_vi: "Khi rẽ trái, phải nhường đường cho xe đang đi thẳng tới từ hướng ngược lại.",
       english_ref: "Left turn yield",
@@ -395,7 +399,7 @@ export const FLASHCARDS = [
   {
     id: "fc-033",
     category: "Tình huống lái xe",
-    front: { image: null, title_vi: "Khoảng cách theo sau" },
+    front: { image: "sc-following-distance.svg", title_vi: "Khoảng cách theo sau" },
     back: {
       explanation_vi: "Dùng quy tắc bốn (4) giây với xe phía trước; nếu vượt qua điểm mốc trong chưa đầy 4 giây là đang đi quá sát. Tăng khoảng cách khi đường xấu.",
       english_ref: "Four-second rule",
@@ -406,7 +410,7 @@ export const FLASHCARDS = [
   {
     id: "fc-034",
     category: "Tình huống lái xe",
-    front: { image: null, title_vi: "Xe bị trượt" },
+    front: { image: "sc-skid.svg", title_vi: "Xe bị trượt" },
     back: {
       explanation_vi: "Nhả chân ga và đánh lái nhẹ về hướng bạn muốn xe đi tới (hướng xe đang trượt). Không đạp phanh gấp.",
       english_ref: "Skid recovery",
@@ -417,7 +421,7 @@ export const FLASHCARDS = [
   {
     id: "fc-035",
     category: "Tình huống lái xe",
-    front: { image: null, title_vi: "Trượt nước" },
+    front: { image: "sc-hydroplaning.svg", title_vi: "Trượt nước" },
     back: {
       explanation_vi: "Nhả nhẹ chân ga và giữ vô-lăng thẳng cho tới khi lốp bám lại. Giảm tốc độ trên đường ướt để phòng tránh.",
       english_ref: "Hydroplaning",
@@ -428,7 +432,7 @@ export const FLASHCARDS = [
   {
     id: "fc-036",
     category: "Tình huống lái xe",
-    front: { image: null, title_vi: "Lái xe trong sương mù" },
+    front: { image: "sc-fog.svg", title_vi: "Lái xe trong sương mù" },
     back: {
       explanation_vi: "Dùng đèn pha luồng sáng thấp (đèn cốt). Đèn chiếu xa làm ánh sáng phản chiếu lại, khó nhìn hơn.",
       english_ref: "Low beams in fog",
@@ -439,7 +443,7 @@ export const FLASHCARDS = [
   {
     id: "fc-037",
     category: "Tình huống lái xe",
-    front: { image: null, title_vi: "Gạt nước → bật đèn" },
+    front: { image: "sc-wipers-lights.svg", title_vi: "Gạt nước → bật đèn" },
     back: {
       explanation_vi: "Theo luật Pennsylvania, bất cứ khi nào bật cần gạt nước thì phải bật đèn pha (đèn cốt).",
       english_ref: "Wipers on, lights on",
@@ -463,7 +467,7 @@ export const FLASHCARDS = [
   {
     id: "fc-039",
     category: "An toàn giao thông",
-    front: { image: null, title_vi: "Dây an toàn" },
+    front: { image: "sf-seatbelt.svg", title_vi: "Dây an toàn" },
     back: {
       explanation_vi: "Thắt dây an toàn là việc hiệu quả nhất để giảm nguy cơ thương tích hoặc tử vong khi va chạm.",
       english_ref: "Seat belt",
@@ -474,7 +478,7 @@ export const FLASHCARDS = [
   {
     id: "fc-040",
     category: "An toàn giao thông",
-    front: { image: null, title_vi: "Nồng độ cồn (DUI)" },
+    front: { image: "sf-dui.svg", title_vi: "Nồng độ cồn (DUI)" },
     back: {
       explanation_vi: "Người từ 21 tuổi: DUI khi BAC ≥ 0,08%. Người dưới 21 tuổi: không khoan nhượng, BAC ≥ 0,02% là vi phạm.",
       english_ref: "DUI / BAC limit",
@@ -485,7 +489,7 @@ export const FLASHCARDS = [
   {
     id: "fc-041",
     category: "An toàn giao thông",
-    front: { image: null, title_vi: "Nhắn tin khi lái xe" },
+    front: { image: "sf-no-texting.svg", title_vi: "Nhắn tin khi lái xe" },
     back: {
       explanation_vi: "Pennsylvania cấm nhắn tin khi đang lái xe. Nếu cần dùng điện thoại, hãy dừng xe ở nơi an toàn.",
       english_ref: "Texting ban",
@@ -496,7 +500,7 @@ export const FLASHCARDS = [
   {
     id: "fc-042",
     category: "An toàn giao thông",
-    front: { image: null, title_vi: "Lái xe khi mệt mỏi" },
+    front: { image: "sf-drowsy.svg", title_vi: "Lái xe khi mệt mỏi" },
     back: {
       explanation_vi: "Khi thấy mệt, điều tốt nhất là dừng lái xe. Thiếu ngủ ảnh hưởng tới lái xe tương tự như tác động của rượu.",
       english_ref: "Drowsy driving",
