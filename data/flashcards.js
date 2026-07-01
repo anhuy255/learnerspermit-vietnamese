@@ -507,6 +507,140 @@ export const FLASHCARDS = [
       pronunciation: null,
       memory_tip: "Buồn ngủ ≈ say rượu → dừng nghỉ."
     }
+  },
+
+  // ===== Biển báo giao thông bổ sung (ảnh trích từ handbook) ==============
+  {
+    id: "fc-043",
+    category: "Biển báo giao thông",
+    front: { image: "sign-yield.png", title_vi: "Nhường đường" },
+    back: {
+      explanation_vi: "Hình tam giác ngược đỏ-trắng: đi chậm lại, nhường đường cho xe và người đi bộ đang tới; chỉ dừng khi cần.",
+      english_ref: "YIELD",
+      pronunciation: null,
+      memory_tip: "Tam giác ngược = nhường (không nhất thiết dừng hẳn)."
+    }
+  },
+  {
+    id: "fc-044",
+    category: "Biển báo giao thông",
+    front: { image: "sign-no-passing.png", title_vi: "Khu vực cấm vượt" },
+    back: {
+      explanation_vi: "Biển hình cờ đuôi nheo màu vàng đặt bên trái đường, báo bắt đầu khu vực cấm vượt.",
+      english_ref: "NO PASSING ZONE",
+      pronunciation: null,
+      memory_tip: "Cờ đuôi nheo vàng = bắt đầu cấm vượt."
+    }
+  },
+  {
+    id: "fc-045",
+    category: "Biển báo giao thông",
+    front: { image: "sign-deer.png", title_vi: "Hươu nai qua đường" },
+    back: {
+      explanation_vi: "Khu vực hươu nai thường băng qua và từng xảy ra va chạm. Đề phòng động vật, nhất là lúc bình minh/hoàng hôn.",
+      english_ref: "DEER CROSSING",
+      pronunciation: null,
+      memory_tip: "Hình con nai = đề phòng thú băng qua."
+    }
+  },
+  {
+    id: "fc-046",
+    category: "Biển báo giao thông",
+    front: { image: "sign-merge.png", title_vi: "Phương tiện nhập làn" },
+    back: {
+      explanation_vi: "Các phương tiện khác có thể nhập vào làn của bạn từ đường khác. Xe nhập làn phải nhường cho xe đang đi trên làn chính.",
+      english_ref: "MERGE",
+      pronunciation: null,
+      memory_tip: "Hai mũi tên chụm lại = có xe nhập làn."
+    }
+  },
+  {
+    id: "fc-047",
+    category: "Biển báo giao thông",
+    front: { image: "sign-t-intersection.png", title_vi: "Giao lộ chữ T" },
+    back: {
+      explanation_vi: "Con đường bạn đang đi kết thúc ở giao lộ chữ T phía trước — phải rẽ trái hoặc rẽ phải.",
+      english_ref: "T-intersection",
+      pronunciation: null,
+      memory_tip: "Chữ T = đường cụt, phải rẽ trái/phải."
+    }
+  },
+  {
+    id: "fc-048",
+    category: "Biển báo giao thông",
+    front: { image: "sign-divided-highway.png", title_vi: "Bắt đầu đường phân cách" },
+    back: {
+      explanation_vi: "Phía trước đường tách thành xa lộ hai chiều có dải phân cách. Tiếp tục đi bên phải của dải phân cách.",
+      english_ref: "DIVIDED HIGHWAY",
+      pronunciation: null,
+      memory_tip: "Hai mũi tên tách ra = có dải phân cách, đi bên phải."
+    }
+  },
+  {
+    id: "fc-049",
+    category: "Biển báo giao thông",
+    front: { image: "sign-low-clearance.png", title_vi: "Chiều cao an toàn thấp" },
+    back: {
+      explanation_vi: "Đặt ở cầu chui/hầm/bãi đỗ. Không đi vào nếu xe cao hơn chiều cao ghi trên biển.",
+      english_ref: "LOW CLEARANCE",
+      pronunciation: null,
+      memory_tip: "Có số feet-inch = chiều cao tối đa cho phép."
+    }
+  },
+  {
+    id: "fc-050",
+    category: "Biển báo giao thông",
+    front: { image: "sign-slippery.png", title_vi: "Đường trơn khi ướt" },
+    back: {
+      explanation_vi: "Đường đặc biệt trơn khi ẩm ướt. Giảm tốc, tăng khoảng cách với xe trước, rẽ chậm; không tăng/phanh gấp.",
+      english_ref: "SLIPPERY WHEN WET",
+      pronunciation: null,
+      memory_tip: "Xe có vệt trượt = trơn khi ướt."
+    }
+  },
+  {
+    id: "fc-051",
+    category: "Biển báo giao thông",
+    front: { image: "sign-bicycle.png", title_vi: "Xe đạp qua đường" },
+    back: {
+      explanation_vi: "Người đi xe đạp có thể cắt ngang hướng đi của bạn phía trước. Chuẩn bị sẵn sàng giảm tốc độ.",
+      english_ref: "BICYCLE CROSSING",
+      pronunciation: null,
+      memory_tip: "Hình xe đạp trên nền vàng = đề phòng xe đạp cắt ngang."
+    }
+  },
+  {
+    id: "fc-052",
+    category: "Biển báo giao thông",
+    front: { image: "sign-railroad-ahead.png", title_vi: "Sắp đến đường sắt" },
+    back: {
+      explanation_vi: "Biển tròn màu vàng có chữ 'RXR': phía trước có đường ray xe lửa. Quan sát và lắng nghe tàu, sẵn sàng dừng lại.",
+      english_ref: "RAILROAD CROSSING AHEAD",
+      pronunciation: null,
+      memory_tip: "Biển tròn vàng 'RXR' = đường sắt phía trước."
+    }
+  },
+  {
+    id: "fc-053",
+    category: "Biển báo giao thông",
+    front: { image: "sign-interstate.png", title_vi: "Xa lộ liên tiểu bang" },
+    back: {
+      explanation_vi: "Biển hình khiên đỏ-trắng-xanh dương cho biết đây là xa lộ liên tiểu bang. Số chẵn: hướng đông-tây; số lẻ: hướng bắc-nam.",
+      english_ref: "INTERSTATE route marker",
+      pronunciation: null,
+      memory_tip: "Khiên đỏ-trắng-xanh = xa lộ liên tiểu bang."
+    }
+  },
+  {
+    id: "fc-054",
+    category: "Biển báo giao thông",
+    front: { image: "sign-signal-ahead.png", title_vi: "Sắp có đèn tín hiệu" },
+    back: {
+      explanation_vi: "Phía trước có đèn tín hiệu giao thông (có thể bị khuất do đường cong hoặc dốc). Giảm tốc và sẵn sàng dừng lại.",
+      english_ref: "SIGNAL AHEAD",
+      pronunciation: null,
+      memory_tip: "Hình đèn giao thông trên biển vàng = đèn phía trước."
+    }
   }
 ];
 
