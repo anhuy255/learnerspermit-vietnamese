@@ -876,5 +876,71 @@ export const QUESTIONS = [
     explanation_vi: "Người dưới 21 tuổi bị kết tội DUI sẽ bị đình chỉ bằng lái 1 năm cho lần đầu.",
     image: null,
     source_ref: "PUB 95 – Chương 4, câu hỏi ôn tập #13 (trang in 86–87)"
+  },
+
+  // ---- Câu hỏi hình ảnh bổ sung (theo mẫu đề thi English) ----------------
+  {
+    id: "q-074",
+    topic: "yield-park-safety",
+    question_vi: "Quý vị có thể lái xe vòng qua cổng chắn tại khu vực giao nhau với đường sắt khi nào?",
+    choices_vi: [
+      "Khi tàu đang chạy qua",
+      "Không bao giờ",
+      "Khi đèn đã ngừng nhấp nháy",
+      "Khi có xe khác lái vòng qua"
+    ],
+    correct_answer: 1,
+    explanation_vi:
+      "Không bao giờ được lái vòng qua cổng chắn đường sắt. Chỉ đi tiếp khi cổng đã nâng lên hẳn và đèn ngừng nhấp nháy.",
+    image: null,
+    source_ref: "PUB 95 – Chương 2, câu hỏi ôn tập #10 (trang in 24)"
+  },
+  {
+    id: "q-075",
+    topic: "signs-signals",
+    question_vi: "Biển báo hình thoi màu vàng có hình dấu cộng (chữ thập) này cho biết:",
+    choices_vi: [
+      "Phía trước có giao lộ (đường cắt ngang)",
+      "Sắp có điểm đổi làn",
+      "Phía trước có đoạn đường cong",
+      "Khu vực đỗ xe"
+    ],
+    correct_answer: 0,
+    explanation_vi:
+      "Đây là biển ĐƯỜNG CẮT NGANG — cảnh báo có giao lộ phía trước. Hãy quan sát và sẵn sàng giảm tốc độ.",
+    image: "cross-road.png",
+    source_ref: "PUB 95 – Chương 2, CÁC BIỂN BÁO GIAO LỘ (ĐƯỜNG CẮT NGANG) (trang in 15)"
+  },
+  {
+    id: "q-076",
+    topic: "signs-signals",
+    question_vi: "Khi thấy biển báo màu vàng-đen có mũi tên lớn chỉ sang một bên này, điều đó có nghĩa là:",
+    choices_vi: [
+      "Đường vòng sang phải do công trình",
+      "Đi chậm lại vì đoạn đường phía trước đổi hướng ngoặt đột ngột",
+      "Con đường bên phải chỉ dành cho một chiều",
+      "Phía trước có đường cắt ngang bên phải"
+    ],
+    correct_answer: 1,
+    explanation_vi:
+      "Biển MŨI TÊN LỚN MỘT CHIỀU cho biết đoạn đường phía trước đổi hướng ngoặt đột ngột; hãy giảm tốc như khi rẽ tại một giao lộ.",
+    image: "large-arrow.png",
+    source_ref: "PUB 95 – Chương 2, MŨI TÊN LỚN MỘT CHIỀU (trang in 14)"
+  },
+  {
+    id: "q-077",
+    topic: "signs-signals",
+    question_vi: "Biển 'CENTER LANE' (làn đường giữa) như trong hình cho biết làn giữa được dùng để:",
+    choices_vi: [
+      "Đi lại thông thường",
+      "Chỉ để rẽ trái (cho cả hai hướng)",
+      "Chỉ để vượt xe",
+      "Chỉ dành cho xe cấp cứu"
+    ],
+    correct_answer: 1,
+    explanation_vi:
+      "Đây là làn đường giữa dành riêng để rẽ trái theo cả hai hướng — không dùng để đi thẳng hay vượt.",
+    image: "center-lane.png",
+    source_ref: "PUB 95 – Chương 2, biển kiểm soát sử dụng làn đường / câu hỏi ôn tập #45 (trang in 11, 28)"
   }
 ];
