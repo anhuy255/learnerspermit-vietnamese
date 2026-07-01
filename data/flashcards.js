@@ -257,7 +257,7 @@ export const FLASHCARDS = [
   {
     id: "fc-021",
     category: "Tín hiệu đèn",
-    front: { image: null, title_vi: "Đèn đỏ nhấp nháy" },
+    front: { image: "flashing-red.png", title_vi: "Đèn đỏ nhấp nháy" },
     back: {
       explanation_vi: "Xử lý như biển DỪNG (STOP): dừng hẳn, rồi mới đi khi an toàn.",
       english_ref: "Flashing red",
@@ -268,7 +268,7 @@ export const FLASHCARDS = [
   {
     id: "fc-022",
     category: "Tín hiệu đèn",
-    front: { image: null, title_vi: "Đèn vàng nhấp nháy" },
+    front: { image: "flashing-yellow.png", title_vi: "Đèn vàng nhấp nháy" },
     back: {
       explanation_vi: "Giảm tốc độ và đi qua một cách thận trọng.",
       english_ref: "Flashing yellow",
@@ -303,7 +303,7 @@ export const FLASHCARDS = [
   {
     id: "fc-025",
     category: "Vạch kẻ đường",
-    front: { image: null, title_vi: "Vạch vàng đứt" },
+    front: { image: "mark-dashed-yellow.png", title_vi: "Vạch vàng đứt" },
     back: {
       explanation_vi: "Phân chia hai chiều xe; vạch đứt cho phép vượt khi an toàn.",
       english_ref: "Broken yellow line",
@@ -314,7 +314,7 @@ export const FLASHCARDS = [
   {
     id: "fc-026",
     category: "Vạch kẻ đường",
-    front: { image: null, title_vi: "Vạch vàng kép liền" },
+    front: { image: "mark-double-yellow.png", title_vi: "Vạch vàng kép liền" },
     back: {
       explanation_vi: "Cấm vượt ở cả hai bên — không xe nào được lấn qua để vượt.",
       english_ref: "Double solid yellow",
@@ -325,7 +325,7 @@ export const FLASHCARDS = [
   {
     id: "fc-027",
     category: "Vạch kẻ đường",
-    front: { image: null, title_vi: "Vạch trắng" },
+    front: { image: "mark-white-lanes.png", title_vi: "Vạch trắng" },
     back: {
       explanation_vi: "Phân chia các làn xe đi cùng một chiều. Vạch trắng đứt cho phép đổi làn; mép đường bên phải là vạch trắng liền.",
       english_ref: "White lines",
