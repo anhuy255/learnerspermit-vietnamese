@@ -41,6 +41,9 @@ let quiz = null;
 // If the bank is smaller than this, all questions are used.
 const QUIZ_LENGTH = 18;
 const PASS_CORRECT = 15; // 15/18 ≈ 83% on the official test
+// Max wrong answers allowed before you can no longer pass (18 - 15 = 3).
+// The 4th wrong answer ends the test immediately, like the real exam.
+const MAX_WRONG = QUIZ_LENGTH - PASS_CORRECT;
 
 // Flash card runtime state (kept in memory).
 let flash = null;
@@ -102,7 +105,9 @@ function startQuiz() {
     index: 0,
     selected: null, // index of chosen answer for current question
     submitted: false,
-    score: 0
+    score: 0,
+    wrong: 0,
+    failedEarly: false
   };
   location.hash = "#/quiz";
   renderQuiz();
@@ -150,9 +155,16 @@ function renderQuiz() {
         <p>${esc(q.explanation_vi)}</p>
         <p class="source-tag">Nguồn: ${esc(q.source_ref)}</p>
       </div>`;
-    const last = quiz.index === total - 1;
+    const endsNow = quiz.index === total - 1 || quiz.failedEarly;
+    if (quiz.failedEarly) {
+      feedbackHtml += `
+      <div class="explanation" style="border-left-color:var(--red);background:var(--red-bg);">
+        <p class="verdict no">Bạn đã sai ${quiz.wrong} câu.</p>
+        <p>Trong kỳ thi thật, chỉ được sai tối đa ${MAX_WRONG} câu (cần đúng ${PASS_CORRECT}/${QUIZ_LENGTH}). Bài thi kết thúc tại đây.</p>
+      </div>`;
+    }
     actionHtml = `<button class="btn" id="next-btn">${
-      last ? "Xem kết quả →" : "Câu tiếp theo →"
+      endsNow ? "Xem kết quả →" : "Câu tiếp theo →"
     }</button>`;
   } else {
     actionHtml = `<button class="btn" id="submit-btn" ${
@@ -185,11 +197,15 @@ function renderQuiz() {
         if (quiz.selected === null) return;
         quiz.submitted = true;
         if (quiz.selected === q.correct_answer) quiz.score++;
+        else {
+          quiz.wrong++;
+          if (quiz.wrong > MAX_WRONG) quiz.failedEarly = true;
+        }
         renderQuiz();
       });
   } else {
     document.getElementById("next-btn").addEventListener("click", () => {
-      if (quiz.index === total - 1) {
+      if (quiz.index === total - 1 || quiz.failedEarly) {
         location.hash = "#/results";
         renderResults();
       } else {
@@ -206,21 +222,29 @@ function renderResults() {
   if (!quiz) return renderHome();
   const total = quiz.questions.length;
   const score = quiz.score;
-  const pct = Math.round((score / total) * 100);
   // Official PA rule: 15 of 18 correct (83%) to pass. Scale if the deck is smaller.
   const needed = Math.min(PASS_CORRECT, Math.ceil((PASS_CORRECT / QUIZ_LENGTH) * total));
-  const passed = score >= needed;
+  const passed = !quiz.failedEarly && score >= needed;
+  // When the test ends early, only the answered questions count toward the shown total.
+  const answered = quiz.failedEarly ? quiz.index + 1 : total;
+  const pct = Math.round((score / answered) * 100);
+
+  const msg = quiz.failedEarly
+    ? `❌ Rớt — bạn đã sai ${quiz.wrong} câu (chỉ được sai tối đa ${MAX_WRONG}). Bài thi kết thúc sớm, giống kỳ thi thật.`
+    : passed
+    ? "🎉 Đậu! Bạn đã đúng ít nhất " + needed + "/" + total + " câu."
+    : "Chưa đạt — cần đúng " + needed + "/" + total + " câu để đậu. Hãy ôn lại và thử lại nhé!";
 
   app.innerHTML = `
     <h1 class="page-title">Kết quả</h1>
-    <div class="score-circle">
+    <div class="score-circle" ${passed ? "" : 'style="background:var(--red)"'}>
       <div>
-        <div class="num">${score}/${total}</div>
-        <div class="pct">${pct}%</div>
+        <div class="num">${score}/${answered}</div>
+        <div class="pct">${quiz.failedEarly ? "đúng" : pct + "%"}</div>
       </div>
     </div>
     <p class="result-msg ${passed ? "pass" : "fail"}">
-      ${passed ? "🎉 Đậu! Bạn đã đúng ít nhất " + needed + "/" + total + " câu." : "Chưa đạt — cần đúng " + needed + "/" + total + " câu để đậu. Hãy ôn lại và thử lại nhé!"}
+      ${msg}
     </p>
     <button class="btn" id="retry-btn">🔄 Làm lại bài thi</button>
     <a class="btn btn--secondary" href="#/">← Về trang chủ</a>
